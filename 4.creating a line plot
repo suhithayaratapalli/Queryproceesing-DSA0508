@@ -1,0 +1,22 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate synthetic data for demonstration
+date_range = pd.date_range(start='2023-01-01', end='2024-01-01', freq='D')
+stock_prices = np.random.normal(loc=1000, scale=50, size=len(date_range))
+
+# Create a DataFrame from the synthetic data
+df = pd.DataFrame({'Date': date_range, 'Close': stock_prices})
+df.set_index('Date', inplace=True)
+
+# Plot the historical stock prices
+plt.figure(figsize=(10, 6))
+plt.plot(df.index, df['Close'], color='blue', marker='o', linestyle='-')
+plt.title('Synthetic Historical Stock Prices of Alphabet Inc. (Google)')
+plt.xlabel('Date')
+plt.ylabel('Stock Price (USD)')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
