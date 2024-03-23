@@ -1,0 +1,29 @@
+import pandas as pd
+
+# Sample sales data (list of dictionaries)
+sales_data = [
+    {'item_id': 1, 'units_sold': 10},
+    {'item_id': 2, 'units_sold': 15},
+    {'item_id': 3, 'units_sold': 8},
+    {'item_id': 1, 'units_sold': 12},
+    {'item_id': 2, 'units_sold': 20}
+]
+
+# Initialize an empty dictionary to store aggregated units sold for each item
+item_wise_units_sold = {}
+
+# Iterate over the sales data and aggregate units sold for each item
+for sale in sales_data:
+    item_id = sale['item_id']
+    units_sold = sale['units_sold']
+    if item_id in item_wise_units_sold:
+        item_wise_units_sold[item_id] += units_sold
+    else:
+        item_wise_units_sold[item_id] = units_sold
+
+# Convert the aggregated data into a pandas Series
+item_wise_units_sold_series = pd.Series(item_wise_units_sold)
+
+# Display the pivot table
+print("Pivot Table:")
+print(item_wise_units_sold_series)
