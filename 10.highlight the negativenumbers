@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with random values
+np.random.seed(0)  # For reproducibility
+data = np.random.randn(10, 4)  # Generating random values
+df = pd.DataFrame(data, columns=['A', 'B', 'C', 'D'])
+
+# Define a function to apply color based on values
+def color_negative_red(val):
+    color = 'red' if val < 0 else 'black'
+    return 'color: %s' % color
+
+# Apply styling to the DataFrame
+styled_df = df.style.applymap(color_negative_red)
+
+# Display the styled DataFrame
+styled_df
