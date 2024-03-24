@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Assuming sales_data is your DataFrame containing sales data
+
+# Sample data
+sales_data = {
+    'Region': ['North', 'North', 'South', 'South', 'East', 'East'],
+    'Manager': ['John', 'John', 'Alice', 'Alice', 'Bob', 'Bob'],
+    'Salesman': ['Sam', 'Tom', 'Rob', 'Ken', 'Jake', 'Mike'],
+    'Sale_Amount': [1000, 1500, 2000, 2500, 1800, 2200]
+}
+
+sales_df = pd.DataFrame(sales_data)
+
+# Creating Pivot table
+pivot_table = pd.pivot_table(sales_df, index=['Region', 'Manager', 'Salesman'], aggfunc='sum')
+
+print("Pivot Table - Total sale amount region-wise, manager-wise, and salesperson-wise:")
+print(pivot_table)
