@@ -1,0 +1,15 @@
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with random values
+df = pd.DataFrame(np.random.randn(10, 4), columns=['A', 'B', 'C', 'D'])
+
+# Define a function to apply background and font color
+def color_styler(val):
+    return 'background-color: black; color: yellow'
+
+# Apply the style function to the DataFrame
+styled_df = df.style.applymap(color_styler)
+
+# Display the styled DataFrame
+styled_df
