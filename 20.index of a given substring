@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Sample DataFrame
+data = {'Name': ['John', 'Alice', 'Bob', 'Charlie', 'David','alia'],
+        'Age': [25, 30, 35, 40, 45,76]}
+df = pd.DataFrame(data)
+
+# Function to find the index of a substring in a column
+def find_substring_index(dataframe, column_name, substring):
+    return dataframe[dataframe[column_name].str.find(substring) != -1].index.tolist()
+
+# Example usage
+substring = 'al'
+column_name = 'Name'
+indexes = find_substring_index(df, column_name, substring)
+
+if indexes:
+    print(f"Indexes of rows containing '{substring}' in column '{column_name}': {indexes}")
+else:
+    print(f"No matches found for '{substring}' in column '{column_name}'")
