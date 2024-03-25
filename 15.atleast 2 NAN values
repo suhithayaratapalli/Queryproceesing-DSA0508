@@ -1,0 +1,20 @@
+import pandas as pd
+import numpy as np
+
+# Given data
+data = {
+    'ord_no': [70001.0, np.nan, 70002.0, 70004.0, np.nan],
+    'purch_amt': [1, np.nan, 150.50, 270.65, 65.26],
+    'ord_date': [np.nan, '2012-10-05', '2012-08-17', '2012-09-10', '2012-09-10'],
+    'customer_id': [np.nan, 270.65, 65.26, np.nan, 110.50]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Keep rows with at least 2 NaN values
+df_filtered = df[df.isnull().sum(axis=1) >= 2]
+
+# Display DataFrame after filtering
+print("DataFrame with rows containing at least 2 NaN values:")
+print(df_filtered)
