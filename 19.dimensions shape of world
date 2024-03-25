@@ -1,0 +1,22 @@
+import pandas as pd
+
+# Sample data
+data = {
+    'country': ['USA', 'Canada', 'UK', 'Germany', 'France'],
+    'beer_servings': [200, 220, 180, 250, 190],
+    'spirit_servings': [100, 120, 90, 150, 110],
+    'wine_servings': [50, 60, 70, 80, 90],
+    'total_litres_of_pure_alcohol': [10.5, 11.0, 9.5, 12.0, 10.8]
+}
+
+# Create DataFrame
+drinks_df = pd.DataFrame(data)
+
+# Display the dimensions or shape of the dataset
+print("Dimensions of the World alcohol consumption dataset:")
+print(drinks_df.shape)
+
+# Extract the column names from the dataset
+column_names = drinks_df.columns
+print("\nColumn names of the World alcohol consumption dataset:")
+print(column_names)
