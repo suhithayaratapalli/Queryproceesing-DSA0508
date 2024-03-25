@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with random values
+df = pd.DataFrame(np.random.randn(10, 4), columns=['A', 'B', 'C', 'D'])
+
+# Convert some values to NaN
+df.loc[0, 'C'] = np.nan
+df.loc[2, 'B'] = np.nan
+df.loc[4, 'A'] = np.nan
+df.loc[6, 'D'] = np.nan
+df.loc[8, 'B'] = np.nan
+
+# Highlight NaN values
+highlighted_df = df.style.highlight_null(null_color='red')
+
+# Display the DataFrame with highlighted NaN values
+highlighted_df
