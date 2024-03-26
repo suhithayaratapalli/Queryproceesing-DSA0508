@@ -1,0 +1,6 @@
+import pandas as pd
+data = {'A': [1, 2, 3],
+        'B': ['Hello', 'WORLD', 'HowAreYou']}
+df = pd.DataFrame(data)
+df['B'] = df['B'].str.swapcase()
+print(df)
